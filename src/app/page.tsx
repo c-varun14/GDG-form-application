@@ -14,17 +14,20 @@ import {
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import ShowingFormData from "@/components/enquiryForm/ShowingFormData";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 //@ts-expect-error We have no other way
 const formData: formType = {};
 
 const Page = () => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [parent, enableAnimations] = useAutoAnimate();
   return (
     <section className="flex justify-center items-center container py-14 min-h-screen mx-auto px-4">
       <Card
+        ref={parent}
         className={cn(
-          "w-full md:min-w-96 md:max-w-md px-4 py-8",
+          "w-full md:min-w-96 md:max-w-md px-4 py-8 border-ring",
           currentStep === 0 ? "text-center" : ""
         )}
       >
@@ -51,28 +54,16 @@ const Page = () => {
           </>
         )}
         {currentStep === 1 && (
-          <div id="1">
-            <CompanyDetails
-              setCurrentStep={setCurrentStep}
-              formData={formData}
-            />
-          </div>
+          <CompanyDetails setCurrentStep={setCurrentStep} formData={formData} />
         )}
         {currentStep === 2 && (
-          <div id="2">
-            <PersonalDetails
-              setCurrentStep={setCurrentStep}
-              formData={formData}
-            />
-          </div>
+          <PersonalDetails
+            setCurrentStep={setCurrentStep}
+            formData={formData}
+          />
         )}
         {currentStep === 3 && (
-          <div id="3">
-            <ProjectDetails
-              setCurrentStep={setCurrentStep}
-              formData={formData}
-            />
-          </div>
+          <ProjectDetails setCurrentStep={setCurrentStep} formData={formData} />
         )}
         {currentStep === 4 && <ShowingFormData formData={formData} />}
       </Card>

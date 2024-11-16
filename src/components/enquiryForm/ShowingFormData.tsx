@@ -10,12 +10,12 @@ const ShowingFormData = ({ formData }: { formData: formType }) => {
   return (
     <>
       <CardHeader>
-        <CardTitle className="mb-6 text-xl">
-          Below is the data you have entered:
+        <CardTitle className="mb-6 text-xl font-bold">
+          Below is Your Data:
         </CardTitle>
         <CardDescription>
           <section className="mb-4">
-            <h3 className="text-lg font-semibold">Company Details:</h3>
+            <h3 className="text-base font-semibold">Company Details:</h3>
             <p className="ml-3">
               <strong>Name: </strong>
               {formData.companyDetails.name}
@@ -39,7 +39,7 @@ const ShowingFormData = ({ formData }: { formData: formType }) => {
           </section>
 
           <section className="mb-4">
-            <h3 className="text-lg font-semibold">Personal Details:</h3>
+            <h3 className="text-base font-semibold">Personal Details:</h3>
             <p className="ml-3">
               <strong>Name: </strong>
               {formData.personalDetails.name}
@@ -61,7 +61,7 @@ const ShowingFormData = ({ formData }: { formData: formType }) => {
           </section>
 
           <section>
-            <h3 className="text-lg font-semibold">Project Details:</h3>
+            <h3 className="text-base font-semibold">Project Details:</h3>
             <p className="ml-3">
               <strong>Budget: </strong>${formData.projectDetails.budget}
             </p>
@@ -77,7 +77,7 @@ const ShowingFormData = ({ formData }: { formData: formType }) => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <CardDescription>
+        <CardDescription className="text-primary">
           I didn&apos;t have any creative ideas on what to so with the data, so
           I just decided on diplaying it.
         </CardDescription>

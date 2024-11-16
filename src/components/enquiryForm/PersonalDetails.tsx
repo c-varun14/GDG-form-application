@@ -29,7 +29,7 @@ const PersonalDetails = ({
       name: "",
       designation: "",
       email: "",
-      phone: undefined,
+      phone: "",
     },
   });
 
